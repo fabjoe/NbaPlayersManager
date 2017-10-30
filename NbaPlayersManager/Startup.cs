@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NbaPlayersManager.Data;
 using NbaPlayersManager.Models;
 using NbaPlayersManager.Services;
+using NbaPlayersManager.Infrastructure;
 
 namespace NbaPlayersManager
 {
@@ -35,7 +36,7 @@ namespace NbaPlayersManager
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-
+            services.AddSingleton<IRankingRepo, RankingRepo>();
             services.AddMvc();
         }
 
