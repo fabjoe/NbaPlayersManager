@@ -12,6 +12,7 @@ using NbaPlayersManager.Data;
 using NbaPlayersManager.Models;
 using NbaPlayersManager.Services;
 using NbaPlayersManager.Infrastructure;
+using NonFactors.Mvc.Grid;
 
 namespace NbaPlayersManager
 {
@@ -36,8 +37,10 @@ namespace NbaPlayersManager
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddSingleton<IRankingRepo, RankingRepo>();
+            services.AddTransient<IRankingRepo, RankingRepo>();
+            services.AddTransient<IPlayerRepo, PlayerRepo>();
             services.AddMvc();
+            services.AddMvcGrid();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

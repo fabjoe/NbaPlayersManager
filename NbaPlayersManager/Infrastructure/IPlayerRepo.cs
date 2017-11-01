@@ -8,7 +8,7 @@ namespace NbaPlayersManager.Infrastructure
 {
     public interface IPlayerRepo
     {
-        Task<IEnumerable<Player>> GetAll();
+        IEnumerable<Player> GetAll();
             
     }
 }

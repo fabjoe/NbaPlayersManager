@@ -1,0 +1,21 @@
+﻿@using NbaPlayersManager.Models
+@using NonFactors.Mvc.Grid
+@model IEnumerable<Player>
+<div class="row">
+    <div class="col-md-12">
+        @(Html.Grid(Model)
+            .Build(columns =>
+            {
+                columns.Add(model => model.PlayerName).Titled("PlayerName");
+                columns.Add(model => model.PlayerID).Titled("PlayerID");
+
+                columns.Add(model => model.PointsPerGame).Titled("PointsPerGame");
+                columns.Add(model => model.StealsPerGame).Titled("StealsPerGame");
+                columns.Add(model => model.ReboundsPerGame).Titled("ReboundsPerGame");
+            })
+            .Filterable()
+            .Sortable()
+            .Pageable()
+        )
+    </div>
+</div>
